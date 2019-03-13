@@ -20,8 +20,4 @@ class IndexController extends Controller
         $count = Counter::limit(7)->get();
         return response()->json(['data' => $count]);
     }
-    public function mp3(){
-        $musics = Mp3::all();
-        return response()->json(['data' => $musics]);
-    }
 }

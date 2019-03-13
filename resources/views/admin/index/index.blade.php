@@ -13,7 +13,6 @@
 	  <div class="container-fluid">
 	    <div class="quick-actions_homepage">
 	        <ul class="quick-actions">
-		        <li class="bg_lr"> <a href="{{route('admin.video.index')}}"> <i class="icon-dashboard"></i>Video</a> </li>
 		        <li class="bg_ly"> <a href="{{route('admin.mp3.index')}}"> <i class="icon-inbox"></i>Nhạc</a> </li>
 		        <li class="bg_ls"> <a href="{{route('admin.picture.index')}}"> <i class="icon-fullscreen"></i>Hình ảnh</a> </li>
 		        <li class="bg_lb"> <a href="{{route('admin.contact.index')}}"> <i class="icon-th-list"></i>Liên hệ</a> </li>

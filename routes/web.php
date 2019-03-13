@@ -17,6 +17,10 @@ Route::get('', [
 	'uses' => 'Singer\IndexController@index',
 	'as' => 'singer.index'
 ]);
+Route::post('', [
+	'uses' => 'Singer\IndexController@contact',
+	'as' => 'singer.index'
+]);
 
 Route::namespace('Auth')->group(function(){
 	Route::get('login', [
@@ -40,32 +44,6 @@ Route::namespace('Admin')->middleware('auth')->group(function(){
 			'uses' => 'IndexController@index',
 			'as' => 'admin.index.index'
 		]);
-		Route::prefix('video')->group(function(){
-			Route::get('', [
-				'uses' => 'YoutubeController@index',
-				'as' => 'admin.video.index'
-			]);
-			Route::get('add', [
-				'uses' => 'YoutubeController@getAdd',
-				'as' => 'admin.video.add'
-			]);
-			Route::post('add', [
-				'uses' => 'YoutubeController@postAdd',
-				'as' => 'admin.video.add'
-			]);
-			Route::get('edit/{id}', [
-				'uses' => 'YoutubeController@getEdit',
-				'as' => 'admin.video.edit'
-			]);
-			Route::post('edit/{id}', [
-				'uses' => 'YoutubeController@postEdit',
-				'as' => 'admin.video.edit'
-			]);
-			Route::get('delete/{id}', [
-				'uses' => 'YoutubeController@delete',
-				'as' => 'admin.video.delete'
-			]);
-		});
 		Route::prefix('mp3')->group(function(){
 			Route::get('', [
 				'uses' => 'Mp3Controller@index',

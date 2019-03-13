@@ -38,9 +38,6 @@
 </head>
 
 <body>
-	<div class="preloader">
-		<div class="preloader_image fa-spin"></div>
-	</div>
 	<!-- search modal -->
 	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal"> <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		<span aria-hidden="true">
@@ -144,17 +141,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12 text-center">
-							<h2 class="section_header with_line">Sân khấu đã biểu diễn</h2>
-							<div class="owl-carousel topmargin_60" data-dots="false" data-nav="true" data-responsive-lg="3">
-							@foreach($videos as $video)
-								<div class="vertical-item content-absolute hover-entry-content">
-									<div class="item-media mutted-media ds"> 
-										{!! $video->link !!}
-									</div>
-								</div>
-							@endforeach
-								
-							</div>
+							<h2 class="section_header with_line">Kênh youtube của tôi</h2>
+							<iframe src='https://www.sociablekit.com/app/embed/index.php?embed_id=21329' frameborder='0' width='100%' height='500'></iframe>
+							
 						</div>
 					</div>
 				</div>
@@ -163,7 +152,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12 text-center">
-							<h2 class="section_header with_line">Latest Album</h2>
+							<h2 class="section_header with_line">Bài hát yêu thích</h2>
 						</div>
 					</div>
 					<div class="row">
@@ -195,233 +184,48 @@
 										<div class="cue-playlist cue-theme-default">
 											<ol class="cue-tracks"></ol>
 										</div>
-										<script type="application/json" class="cue-playlist-data">
-											{
-												"thumbnail": "images/albums/background.jpg",
-												
-												"tracks": [
+									@php
+										$tracks = "";
+									@endphp
+									@foreach($musics as $music)
+										@php
+											$tracks .= '
 												{
-													"artist": "Quang Lê",
+													"artist": "'.$music->artist.'",
 													"artworkId": 0,
 													"artworkUrl": "#0",
-													"audioId": 1,
-													"audioUrl": "mp3/DapVoCayDan.mp3",
+													"audioId": "'.$music->id.'",
+													"audioUrl": "/mp3/'.$music->src.'",
 													"format": "mp3",
-													"length": "05:06",
-													"title": "Đập vỡ cây đàn",
+													"length": "'.$music->length.'",
+													"title": "'.$music->title.'",
 													"order": 0,
-													"mp3": "mp3/DapVoCayDan.mp3",
+													"mp3": "mp3/'.$music->src.'",
 													"meta":
 													{
-														"artist": "Quang Lê",
-														"length_formatted": "05:06"
+														"artist": "'.$music->artist.'",
+														"length_formatted": "'.$music->length.'"
 													},
-													"src": "mp3/DapVoCayDan.mp3",
+													"src": "/mp3/'.$music->src.'",
 													"thumb":
 													{
 														"src": "images/albums/01.jpg"
 													}
-												},
-												{
-													"artist": "Đan Nguyên",
-													"artworkId": 0,
-													"artworkUrl": "#0",
-													"audioId": 2,
-													"audioUrl": "mp3/DoiMatNguoiXua.mp3",
-													"format": "mp3",
-													"length": "04:50",
-													"title": "Đôi mắt người xưa",
-													"order": 0,
-													"mp3": "mp3/DoiMatNguoiXua.mp3",
-													"meta":
-													{
-														"artist": "Đan Nguyên",
-														"length_formatted": "04:50"
-													},
-													"src": "mp3/DoiMatNguoiXua.mp3",
-													"thumb":
-													{
-														"src": "images/albums/02.jpg"
-													}
-												},
-												{
-													"artist": "Tuấn Vũ",
-													"artworkId": 0,
-													"artworkUrl": "#0",
-													"audioId": 3,
-													"audioUrl": "mp3/ChieuCuoiTuan.mp3",
-													"format": "mp3",
-													"length": "04:10",
-													"title": "Chiều cuối tuần",
-													"order": 0,
-													"mp3": "mp3/ChieuCuoiTuan.mp3",
-													"meta":
-													{
-														"artist": "Tuấn Vũ",
-														"length_formatted": "04:10"
-													},
-													"src": "mp3/ChieuCuoiTuan.mp3",
-													"thumb":
-													{
-														"src": "images/albums/03.jpg"
-													}
-												},
-												{
-													"artist": "Băng Tâm ft Đan Nguyên",
-													"artworkId": 0,
-													"artworkUrl": "#0",
-													"audioId": 4,
-													"audioUrl": "mp3/NeuChungMinhCachTro.mp3",
-													"format": "mp3",
-													"length": "05:04",
-													"title": "Nếu Chúng Mình Cách Trở",
-													"order": 0,
-													"mp3": "mp3/NeuChungMinhCachTro.mp3",
-													"meta":
-													{
-														"artist": "Băng Tâm ft Đan Nguyên",
-														"length_formatted": "05:04"
-													},
-													"src": "mp3/NeuChungMinhCachTro.mp3",
-													"thumb":
-													{
-														"src": "images/albums/04.jpg"
-													}
-												},
-												{
-													"artist": "Đan Nguyên",
-													"artworkId": 0,
-													"artworkUrl": "#0",
-													"audioId": 5,
-													"audioUrl": "mp3/DapMoCuocTinh.mp3",
-													"format": "mp3",
-													"length": "3:30",
-													"title": "Đắp mộ cuộc tình",
-													"order": 0,
-													"mp3": "mp3/DapMoCuocTinh.mp3",
-													"meta":
-													{
-														"artist": "Đan Nguyên",
-														"length_formatted": "3:30"
-													},
-													"src": "mp3/DapMoCuocTinh.mp3",
-													"thumb":
-													{
-														"src": "images/albums/05.jpg"
-													}
-												},
-												{
-													"artist": "Đan Nguyên",
-													"artworkId": 0,
-													"artworkUrl": "#0",
-													"audioId": 3,
-													"audioUrl": "mp3/DapMoCuocTinh.mp3",
-													"format": "mp3",
-													"length": "05:03",
-													"title": "Đắp mộ cuộc tình",
-													"order": 0,
-													"mp3": "mp3/DapMoCuocTinh.mp3",
-													"meta":
-													{
-														"artist": "Đan Nguyên",
-														"length_formatted": "05:03"
-													},
-													"src": "mp3/DapMoCuocTinh.mp3",
-													"thumb":
-													{
-														"src": "images/albums/03.jpg"
-													}
-												},
-												{
-													"artist": "Dương Ngọc Thái",
-													"artworkId": 0,
-													"artworkUrl": "#0",
-													"audioId": 1,
-													"audioUrl": "mp3/EmLaTatCa.mp3",
-													"format": "mp3",
-													"length": "04:50",
-													"title": "Em là tất cả",
-													"order": 0,
-													"mp3": "mp3/EmLaTatCa.mp3",
-													"meta":
-													{
-														"artist": "Dương Ngọc Thái",
-														"length_formatted": "04:50"
-													},
-													"src": "mp3/EmLaTatCa.mp3",
-													"thumb":
-													{
-														"src": "images/albums/01.jpg"
-													}
-												},
-												{
-													"artist": "Đan Nguyên",
-													"artworkId": 0,
-													"artworkUrl": "#0",
-													"audioId": 1,
-													"audioUrl": "mp3/LaiNhoNguoiYeu.mp3",
-													"format": "mp3",
-													"length": "04:50",
-													"title": "Lại Nhớ Người Yêu",
-													"order": 0,
-													"mp3": "mp3/LaiNhoNguoiYeu.mp3",
-													"meta":
-													{
-														"artist": "Đan Nguyên",
-														"length_formatted": "04:50"
-													},
-													"src": "mp3/LaiNhoNguoiYeu.mp3",
-													"thumb":
-													{
-														"src": "images/albums/01.jpg"
-													}
-												},
-												{
-													"artist": "Quang Lê",
-													"artworkId": 0,
-													"artworkUrl": "#0",
-													"audioId": 1,
-													"audioUrl": "mp3/HaiChuyenTauDem.mp3",
-													"format": "mp3",
-													"length": "04:39",
-													"title": "Hai Chuyến Tàu Đêm",
-													"order": 0,
-													"mp3": "mp3/LaiNhoNguoiYeu.mp3",
-													"meta":
-													{
-														"artist": "Quang Lê",
-														"length_formatted": "04:39"
-													},
-													"src": "mp3/HaiChuyenTauDem.mp3",
-													"thumb":
-													{
-														"src": "images/albums/01.jpg"
-													}
-												},
-												{
-													"artist": "Đan Nguyên",
-													"artworkId": 0,
-													"artworkUrl": "#0",
-													"audioId": 1,
-													"audioUrl": "mp3/ThanhPhoBuon.mp3",
-													"format": "mp3",
-													"length": "04:50",
-													"title": "Thành phố buồn",
-													"order": 0,
-													"mp3": "mp3/ThanhPhoBuon.mp3",
-													"meta":
-													{
-														"artist": "Đan Nguyên",
-														"length_formatted": "04:50"
-													},
-													"src": "mp3/ThanhPhoBuon.mp3",
-													"thumb":
-													{
-														"src": "images/albums/01.jpg"
-													}
-												}]
-											}
-										</script>
+												},'
+										@endphp
+									@endforeach
+									@php
+										$tracks = substr($tracks, 0, -1);
+										$script = '<script type="application/json" class="cue-playlist-data">
+										{
+											"thumbnail": "images/albums/background.jpg",
+											
+											"tracks": ['. $tracks.'
+											]
+										}
+										</script>';
+									@endphp
+									{!! $script !!}
 									</div>
 								</div>
 							</article>
@@ -435,21 +239,34 @@
 						<div class="col-sm-6 col-sm-offset-6 text-center">
 							<h2 class="section_header with_line">Liên hệ và đặt lịch</h2>
 							<p> Để đặt lịch xin vui lòng liên hệ với người quản lý của tôi bằng cách điền vào biễu mẫu hoặc gọi: 0942.567.679 / 0907.188.812</p>
-							<form class="contact-form columns_padding_10 topmargin_30" method="post" action="./">
+@if(Session::has('msg'))
+	<div class="alert" style="background: #634255">{{ Session::get('msg')}}</div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+							<form class="contact-form columns_padding_10 topmargin_30" method="post" action="{{ route('singer.index') }}">
+								{{ csrf_field() }}
 								<div class="row">
 									<div class="col-md-6">
-										<div class="form-group margin_0"> <label for="name">Họ và tên: <span class="required">*</span></label> <input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder="Họ và tên"> </div>
+										<div class="form-group margin_0"> <label>Họ và tên: <span class="required">*</span></label> <input type="text" aria-required="true" size="30" value="{{ old('name') }}" name="name" class="form-control" placeholder="Họ và tên"> </div>
 									</div>
 									<div class="col-md-6">
-										<div class="form-group margin_0"> <label for="email">Số điện thoại liên hệ:<span class="required">*</span></label> <input type="email" aria-required="true" size="30" value="" name="email" id="number" class="form-control" placeholder="Số điện thoại liên hệ:*"> </div>
+										<div class="form-group margin_0"> <label>Số điện thoại liên hệ:<span class="required">*</span></label> <input type="number" aria-required="true" size="30" value="{{ old('phone') }}" name="phone" class="form-control" placeholder="Số điện thoại liên hệ:*"> </div>
 									</div>
 									<div class="col-md-12">
-										<div class="form-group margin_0"> <label for="message">Nội dung liên hệ:</label> <textarea aria-required="true" rows="5" cols="45" name="message" id="message" class="form-control" placeholder="Nội dung liên hệ:"></textarea> </div>
+										<div class="form-group margin_0"> <label>Nội dung liên hệ:</label> <textarea aria-required="true" rows="5" cols="45" name="description" class="form-control" placeholder="Nội dung liên hệ:">{{ old('description') }}</textarea> </div>
 									</div>
 								</div>
 								<div class="row topmargin_20">
 									<div class="col-sm-12">
-										<div class="contact-form-submit text-center"> <button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button color1 min_width_button">Gửi</button> </div>
+										<div class="contact-form-submit text-center"> <input type="submit" name="submit" class="theme_button color1 min_width_button" value="Gửi" /> </div>
 									</div>
 								</div>
 							</form>
