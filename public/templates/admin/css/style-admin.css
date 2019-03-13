@@ -1,0 +1,11 @@
+.edit{
+	margin-left: 10px;
+	color: #006DCC;
+}
+.delete{
+	margin-left: 10px;
+	color: #DA4F49;
+}
+li{
+	list-style-type: none;
+}
